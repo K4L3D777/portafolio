@@ -1,0 +1,15 @@
+fondos
+Gris base (Layout) - gray-950 (bg-gray-950)
+Gris tarjetas (Reposo) - gray-900 al 50% (bg-gray-900/50)
+Gris tarjetas (Hover) - gray-800 al 80% (bg-gray-800/80)
+Gris avatar (Placeholder) - gray-700 (bg-gray-700)
+
+bordes
+Gris tarjetas (Reposo) - gray-800 (border-gray-800)
+Gris tarjetas (Hover) - gray-600 (border-gray-600)
+
+fuentes
+Gris títulos (Alto énfasis) - gray-100 (text-gray-100)
+Gris descripciones (Medio énfasis) - gray-400 (text-gray-400)
+Gris autor y fecha (Bajo énfasis) - gray-500 (text-gray-500)
+Azul acento (Hover de títulos) - blue-400 (text-blue-400)

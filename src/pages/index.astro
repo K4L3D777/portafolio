@@ -1,17 +1,84 @@
 ---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Card from "../components/Card.astro";
 
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('posts');
+
+const recentPosts = allPosts
+  .toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
-<html lang="en">
+<html lang="es">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        
+        <!-- SEO Básico para la página principal -->
+        <!-- Mejoramos el título añadiendo contexto -->
+        <title>Kaled Sandoval | Portafolio y Blog</title>
+        <!-- Agregamos la descripción general de tu perfil -->
+        <meta name="description" content="Portafolio personal de Kaled Sandoval. Proyectos de desarrollo, ensayos universitarios y artículos sobre ciencia de datos." />
+        <meta name="author" content="Kaled Sandoval" />
+
+        <!-- Open Graph / Facebook / LinkedIn -->
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Kaled Sandoval | Portafolio y Blog" />
+        <meta property="og:description" content="Portafolio personal de Kaled Sandoval. Proyectos de desarrollo, ensayos universitarios y artículos sobre ciencia de datos." />
+        
+        <!-- Twitter Cards -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Kaled Sandoval | Portafolio y Blog" />
+        <meta name="twitter:description" content="Portafolio personal de Kaled Sandoval. Proyectos de desarrollo, ensayos universitarios y artículos sobre ciencia de datos." />
+    </head>
+	<body class="bg-gray-950 px-5 md:px-0">
+		<Header/>
+		<main class=" text-white max-w-3xl mx-auto py-10 prose prose-invert">
+			<div class="my-10">
+				<h1>Proyectos</h1>
+				<iframe 
+    				class="w-full aspect-video rounded-2xl border border-gray-800" 
+    				src="https://www.youtube.com/embed/SwUMzO7P_lo?si=TUgaGhEY88vEyBpZ" 
+    				title="YouTube video player" 
+    				frameborder="0" 
+    				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    				referrerpolicy="strict-origin-when-cross-origin" 
+    				allowfullscreen>
+				</iframe>
+				<div class="py-5">
+					<Card 
+    					title="onofriks"
+    					description="Landing page informativa para una marca de ropa construida en reactjs"
+    					author="Kaled Sandoval"
+    					date={new Date("2023-07-25")}
+    					href="https://onofriks-c2a19.web.app/"
+					/>
+				</div>
+				
+			</div>
+			
+			<div>
+				<h1>Posts mas recientes</h1>
+				<!-- Contenedor del Grid de Posts -->
+				<div class=" grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+    				{recentPosts.map((post) => (
+        			<Card 
+            			title={post.data.title}
+            			description={post.data.description}
+            			author={post.data.author}
+            			date={post.data.date}
+            			href={`/posts/${post.id}`}
+        			/>
+    				))}
+				</div>
+			</div>
+		</main>
+		
 	</body>
 </html>

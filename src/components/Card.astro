@@ -1,0 +1,30 @@
+---
+const { title, description, author, date, href } = Astro.props;
+---
+
+<a 
+    href={href} 
+    class="flex flex-col  not-prose p-6 bg-gray-900/50 border border-gray-800 rounded-2xl hover:bg-gray-800/80 hover:border-gray-600 transition-all duration-300 group"
+>
+    <h3 class="text-lg font-bold text-gray-100 mb-3 group-hover:text-blue-400 transition-colors">
+        {title}
+    </h3>
+    
+    <p class="text-sm text-gray-400 mb-6 line-clamp-3 flex-grow">
+        {description}
+    </p>
+    
+    <div class="flex items-center justify-between mt-auto pt-4 border-t border-gray-800 text-xs text-gray-500 font-medium">
+        <span class="flex items-center gap-2">
+            <div class="w-5 h-5 bg-gray-700 rounded-full"></div>
+            {author}
+        </span>
+        <span>
+            {date.toLocaleDateString('es-MX', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            })}
+        </span>
+    </div>
+</a>
