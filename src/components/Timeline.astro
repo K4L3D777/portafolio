@@ -1,0 +1,91 @@
+---
+// src/components/Timeline.astro
+
+const timelineData = [
+    {
+        title: "Ingeniería y Ciencia de Datos",
+        subtitle: "ITESO, Tlaquepaque",
+        date: "Ene 2026 - Presente",
+        description: "Formación universitaria en curso.",
+        link: null
+    },
+    {
+        title: "Tecnólogo Profesional en Biotecnología",
+        subtitle: "Escuela Politécnica Ing. Jorge Matute Remus, Zapopan",
+        date: "Ene 2022 - Dic 2025",
+        description: "Formación tecnológica a nivel bachillerato con enfoque científico y analítico.",
+        link: null
+    },
+    {
+        title: "Máster en SQL Server desde cero a nivel profesional",
+        subtitle: "Udemy | SQL",
+        date: "Jul 2024",
+        description: "Curso especializado en el diseño, manejo y consulta de bases de datos relacionales.",
+        link: null
+    },
+    {
+        title: "FastApi, comprehensions y manejo de errores",
+        subtitle: "Platzi | Python",
+        date: "Jul 2023",
+        description: "Formación en desarrollo backend, estructuras de datos avanzadas y gestión de excepciones.",
+        link: null
+    },
+    {
+        title: "Curso de Javascript Profesional y Backend con NodeJS",
+        subtitle: "Platzi | JavaScript",
+        date: "Feb 2022",
+        description: "Aprendizaje enfocado en la programación asíncrona y lógica del lado del servidor.",
+        link: null
+    },
+    {
+        title: "Curso definitivo de HTML y CSS",
+        subtitle: "Platzi | HTML & CSS",
+        date: "Nov 2021",
+        description: "Fundamentos de desarrollo web, estructura de documentos y diseño de interfaces.",
+        link: null
+    }
+];
+---
+
+<div class="mt-20 not-prose">
+    <!-- Actualizamos también el título para que refleje que solo es Formación -->
+    <h2 class="text-2xl font-bold text-gray-100 mb-10">Formación Académica</h2>
+    
+    <div class="relative border-l border-gray-800 ml-3 md:ml-4">
+        {timelineData.map((item) => (
+            <div class="mb-10 ml-8 group">
+                <!-- Punto en la línea de tiempo -->
+                <span class="absolute flex items-center justify-center w-3 h-3 bg-gray-900 rounded-full -left-1.5 ring-4 ring-gray-950 border border-gray-800 group-hover:border-blue-400 group-hover:bg-gray-800 transition-all duration-300"></span>
+                
+                <!-- Contenido -->
+                <h3 class="text-lg font-bold text-gray-100 group-hover:text-blue-400 transition-colors duration-300">
+                    {item.title}
+                </h3>
+                
+                <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-sm text-gray-500 font-medium mb-3 mt-1">
+                    <span>{item.date}</span>
+                    <span class="hidden sm:block">&bull;</span>
+                    <span>{item.subtitle}</span>
+                </div>
+                
+                <p class="text-sm text-gray-400 mb-3">
+                    {item.description}
+                </p>
+                
+                {item.link && (
+                    <a 
+                        href={item.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        class="inline-flex items-center text-sm font-medium text-blue-400 hover:text-gray-100 transition-colors"
+                    >
+                        Ver proyecto 
+                        <svg class="w-3 h-3 ml-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                    </a>
+                )}
+            </div>
+        ))}
+    </div>
+</div>
