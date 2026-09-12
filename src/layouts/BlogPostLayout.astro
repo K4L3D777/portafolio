@@ -29,9 +29,9 @@ const {frontmatter} = Astro.props;
         <meta name="twitter:title" content={frontmatter.title} />
         <meta name="twitter:description" content={frontmatter.description} />
     </head>
-    <body class="bg-gray-950">
+    <body class="bg-gray-950 p-5 md:px-0">
         <Header />
-        <main class="max-w-3xl mx-auto py-10 prose prose-invert p-5 md:px-0">
+        <main class="max-w-3xl mx-auto py-10 prose prose-invert ">
             <h1>{frontmatter.title}</h1>
             
             <!-- Agregamos las clases de tu paleta para que los metadatos se vean estéticos -->
