@@ -10,6 +10,7 @@ Gris tarjetas (Hover) - gray-600 (border-gray-600)
 
 fuentes
 Gris títulos (Alto énfasis) - gray-100 (text-gray-100)
-Gris descripciones (Medio énfasis) - gray-400 (text-gray-400)
-Gris autor y fecha (Bajo énfasis) - gray-500 (text-gray-500)
+Gris descripciones Card y Timeline (Medio énfasis) - gray-300 (text-gray-300)
+Gris autor, fechas e instituciones Card y Timeline (Énfasis secundario) - gray-400 (text-gray-400)
+Azul enlaces Timeline - blue-300 (text-blue-300); hover gray-100 (hover:text-gray-100)
 Azul acento (Hover de títulos) - blue-400 (text-blue-400)
